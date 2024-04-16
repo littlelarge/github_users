@@ -12,6 +12,8 @@ abstract class UserDto with _$UserDto {
     required int id,
     @JsonKey(name: 'avatar_url') required String avatarUrl,
     @JsonKey(name: 'login') required String username,
+    @JsonKey(name: 'node_id') required String nodeId,
+    @JsonKey(name: 'type') required String type,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -19,14 +21,21 @@ abstract class UserDto with _$UserDto {
 
   const UserDto._();
 
-  factory UserDto.fromDomain(User user) =>
-      UserDto(id: user.id, avatarUrl: user.avatarUrl, username: user.username);
+  factory UserDto.fromDomain(User user) => UserDto(
+        id: user.id,
+        avatarUrl: user.avatarUrl,
+        username: user.username,
+        nodeId: user.nodeId,
+        type: user.type,
+      );
 
   User toDomain() {
     return User(
       id: id,
       avatarUrl: avatarUrl,
       username: username,
+      nodeId: nodeId,
+      type: type,
     );
   }
 }

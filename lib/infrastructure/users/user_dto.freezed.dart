@@ -25,6 +25,10 @@ mixin _$UserDto {
   String get avatarUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'login')
   String get username => throw _privateConstructorUsedError;
+  @JsonKey(name: 'node_id')
+  String get nodeId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'type')
+  String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +43,9 @@ abstract class $UserDtoCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'login') String username});
+      @JsonKey(name: 'login') String username,
+      @JsonKey(name: 'node_id') String nodeId,
+      @JsonKey(name: 'type') String type});
 }
 
 /// @nodoc
@@ -58,6 +64,8 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? id = null,
     Object? avatarUrl = null,
     Object? username = null,
+    Object? nodeId = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -71,6 +79,14 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      nodeId: null == nodeId
+          ? _value.nodeId
+          : nodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -86,7 +102,9 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'login') String username});
+      @JsonKey(name: 'login') String username,
+      @JsonKey(name: 'node_id') String nodeId,
+      @JsonKey(name: 'type') String type});
 }
 
 /// @nodoc
@@ -103,6 +121,8 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? id = null,
     Object? avatarUrl = null,
     Object? username = null,
+    Object? nodeId = null,
+    Object? type = null,
   }) {
     return _then(_$UserDtoImpl(
       id: null == id
@@ -117,6 +137,14 @@ class __$$UserDtoImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      nodeId: null == nodeId
+          ? _value.nodeId
+          : nodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -127,7 +155,9 @@ class _$UserDtoImpl extends _UserDto {
   const _$UserDtoImpl(
       {required this.id,
       @JsonKey(name: 'avatar_url') required this.avatarUrl,
-      @JsonKey(name: 'login') required this.username})
+      @JsonKey(name: 'login') required this.username,
+      @JsonKey(name: 'node_id') required this.nodeId,
+      @JsonKey(name: 'type') required this.type})
       : super._();
 
   factory _$UserDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -141,10 +171,16 @@ class _$UserDtoImpl extends _UserDto {
   @override
   @JsonKey(name: 'login')
   final String username;
+  @override
+  @JsonKey(name: 'node_id')
+  final String nodeId;
+  @override
+  @JsonKey(name: 'type')
+  final String type;
 
   @override
   String toString() {
-    return 'UserDto(id: $id, avatarUrl: $avatarUrl, username: $username)';
+    return 'UserDto(id: $id, avatarUrl: $avatarUrl, username: $username, nodeId: $nodeId, type: $type)';
   }
 
   @override
@@ -156,12 +192,15 @@ class _$UserDtoImpl extends _UserDto {
             (identical(other.avatarUrl, avatarUrl) ||
                 other.avatarUrl == avatarUrl) &&
             (identical(other.username, username) ||
-                other.username == username));
+                other.username == username) &&
+            (identical(other.nodeId, nodeId) || other.nodeId == nodeId) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, avatarUrl, username);
+  int get hashCode =>
+      Object.hash(runtimeType, id, avatarUrl, username, nodeId, type);
 
   @JsonKey(ignore: true)
   @override
@@ -181,7 +220,9 @@ abstract class _UserDto extends UserDto {
   const factory _UserDto(
       {required final int id,
       @JsonKey(name: 'avatar_url') required final String avatarUrl,
-      @JsonKey(name: 'login') required final String username}) = _$UserDtoImpl;
+      @JsonKey(name: 'login') required final String username,
+      @JsonKey(name: 'node_id') required final String nodeId,
+      @JsonKey(name: 'type') required final String type}) = _$UserDtoImpl;
   const _UserDto._() : super._();
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
@@ -194,6 +235,12 @@ abstract class _UserDto extends UserDto {
   @override
   @JsonKey(name: 'login')
   String get username;
+  @override
+  @JsonKey(name: 'node_id')
+  String get nodeId;
+  @override
+  @JsonKey(name: 'type')
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$UserDtoImplCopyWith<_$UserDtoImpl> get copyWith =>

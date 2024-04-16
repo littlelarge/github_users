@@ -19,6 +19,8 @@ mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
+  String get nodeId => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +31,8 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({int id, String avatarUrl, String username});
+  $Res call(
+      {int id, String avatarUrl, String username, String nodeId, String type});
 }
 
 /// @nodoc
@@ -48,6 +51,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? avatarUrl = null,
     Object? username = null,
+    Object? nodeId = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +67,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      nodeId: null == nodeId
+          ? _value.nodeId
+          : nodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +86,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String avatarUrl, String username});
+  $Res call(
+      {int id, String avatarUrl, String username, String nodeId, String type});
 }
 
 /// @nodoc
@@ -89,6 +103,8 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? avatarUrl = null,
     Object? username = null,
+    Object? nodeId = null,
+    Object? type = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -103,6 +119,14 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      nodeId: null == nodeId
+          ? _value.nodeId
+          : nodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -111,7 +135,11 @@ class __$$UserImplCopyWithImpl<$Res>
 
 class _$UserImpl implements _User {
   const _$UserImpl(
-      {required this.id, required this.avatarUrl, required this.username});
+      {required this.id,
+      required this.avatarUrl,
+      required this.username,
+      required this.nodeId,
+      required this.type});
 
   @override
   final int id;
@@ -119,10 +147,14 @@ class _$UserImpl implements _User {
   final String avatarUrl;
   @override
   final String username;
+  @override
+  final String nodeId;
+  @override
+  final String type;
 
   @override
   String toString() {
-    return 'User(id: $id, avatarUrl: $avatarUrl, username: $username)';
+    return 'User(id: $id, avatarUrl: $avatarUrl, username: $username, nodeId: $nodeId, type: $type)';
   }
 
   @override
@@ -134,11 +166,14 @@ class _$UserImpl implements _User {
             (identical(other.avatarUrl, avatarUrl) ||
                 other.avatarUrl == avatarUrl) &&
             (identical(other.username, username) ||
-                other.username == username));
+                other.username == username) &&
+            (identical(other.nodeId, nodeId) || other.nodeId == nodeId) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, avatarUrl, username);
+  int get hashCode =>
+      Object.hash(runtimeType, id, avatarUrl, username, nodeId, type);
 
   @JsonKey(ignore: true)
   @override
@@ -151,7 +186,9 @@ abstract class _User implements User {
   const factory _User(
       {required final int id,
       required final String avatarUrl,
-      required final String username}) = _$UserImpl;
+      required final String username,
+      required final String nodeId,
+      required final String type}) = _$UserImpl;
 
   @override
   int get id;
@@ -159,6 +196,10 @@ abstract class _User implements User {
   String get avatarUrl;
   @override
   String get username;
+  @override
+  String get nodeId;
+  @override
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

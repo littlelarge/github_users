@@ -8,6 +8,7 @@ import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_list_tile.dart';
+import 'package:github_users/presentation/routes/router.dart';
 import 'package:kt_dart/kt.dart';
 
 class OverviewPageList extends HookWidget {
@@ -37,7 +38,7 @@ class OverviewPageList extends HookWidget {
 
         // Return cleanup function to remove the listener
         // when the widget is disposed
-        
+
         return () {
           scrollController.removeListener(listener);
         };
@@ -47,21 +48,35 @@ class OverviewPageList extends HookWidget {
 
     return ListView.separated(
       padding: padding,
-      itemCount: users.size,
+      itemCount: users.size + 1,
       controller: scrollController,
-      itemBuilder: (context, index) => GUListTile(
-        onTap: () {},
-        color: AppColors.blueGrey,
-        title: Text(
-          '${users.get(index).username} ${users.get(index).id}',
-          style: AppStyles.sf14Medium,
-        ),
-        leading: ClipOval(
-          child: Image.network(
-            users.get(index).avatarUrl,
-          ),
-        ),
-      ),
+      itemBuilder: (context, index) {
+        if (index < users.size) {
+          return GUListTile(
+            onTap: () {
+              UserDetailsRoute(users.get(index))
+                  .push<UserDetailsRoute>(context);
+            },
+            color: AppColors.primary,
+            title: Text(
+              users.get(index).username,
+              style: AppStyles.sf14Medium,
+            ),
+            leading: ClipOval(
+              child: Image.network(
+                users.get(index).avatarUrl,
+              ),
+            ),
+          );
+        } else {
+          return Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.r),
+              child: const CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
       separatorBuilder: (context, index) => Gap(20.r),
     );
   }
