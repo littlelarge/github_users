@@ -5,6 +5,7 @@ import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_appbar.dart';
+import 'package:github_users/presentation/core/gu_widgets/gu_button.dart';
 import 'package:github_users/presentation/users/user_details/widgets/user_details_widget.dart';
 import 'package:github_users/presentation/users/user_details/widgets/user_info_widget.dart';
 import 'package:go_router/go_router.dart';
@@ -44,22 +45,12 @@ class UserDetailsPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            SizedBox(
-              height: 40.r,
-              width: 100.r,
-              child: ElevatedButton(
-                onPressed: () {
-                  context.pop();
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: Colors.brown,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                  ),
-                ),
-                child: Text('Back', style: AppStyles.sf16Medium),
-              ),
+            GUButton(
+              onPressed: () {
+                context.pop();
+              },
+              backgroundColor: AppColors.brown,
+              child: Text('Back', style: AppStyles.sf16Medium),
             ),
             Gap(30.r),
           ],

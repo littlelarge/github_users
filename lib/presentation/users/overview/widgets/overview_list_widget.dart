@@ -7,6 +7,7 @@ import 'package:github_users/application/bloc/users_bloc.dart';
 import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
+import 'package:github_users/presentation/core/gu_widgets/gu_avatar.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_list_tile.dart';
 import 'package:github_users/presentation/routes/router.dart';
 import 'package:kt_dart/kt.dart';
@@ -47,26 +48,21 @@ class OverviewPageList extends HookWidget {
     );
 
     return ListView.separated(
+      key: const PageStorageKey('users-list'),
       padding: padding,
       itemCount: users.size + 1,
       controller: scrollController,
       itemBuilder: (context, index) {
         if (index < users.size) {
           return GUListTile(
-            onTap: () {
-              UserDetailsRoute(users.get(index))
-                  .push<UserDetailsRoute>(context);
-            },
+            onTap: () => UserDetailsRoute(users.get(index))
+                .push<UserDetailsRoute>(context),
             color: AppColors.primary,
             title: Text(
               users.get(index).username,
               style: AppStyles.sf14Medium,
             ),
-            leading: ClipOval(
-              child: Image.network(
-                users.get(index).avatarUrl,
-              ),
-            ),
+            leading: GUAvatar(avatarUrl: users.get(index).avatarUrl),
           );
         } else {
           return Center(

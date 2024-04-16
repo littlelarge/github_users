@@ -22,20 +22,24 @@ class UsersRepository implements IUsersRepository {
 
   @override
   Future<Either<UsersFailure, KtList<User>>> getUsers() async {
-    final since = users.isNotEmpty() ? users.get(users.lastIndex).id : 0;
+    try {
+      final since = users.isNotEmpty() ? users.get(users.lastIndex).id : 0;
 
-    final result =
-        await _dio.get('$usersEndpoint?per_page=$perPage&since=$since');
+      final result =
+          await _dio.get('$usersEndpoint?per_page=$perPage&since=$since');
 
-    final fetchedUsers = (result.data! as List)
-        .map(
-          (userJson) =>
-              UserDto.fromJson(userJson as Map<String, dynamic>).toDomain(),
-        )
-        .toImmutableList();
+      final fetchedUsers = (result.data! as List)
+          .map(
+            (userJson) =>
+                UserDto.fromJson(userJson as Map<String, dynamic>).toDomain(),
+          )
+          .toImmutableList();
 
-    users = users.plus(fetchedUsers);
+      users = users.plus(fetchedUsers);
 
-    return right(users);
+      return right(users);
+    } catch (e) {
+      return left(const UsersFailure.serverError());
+    }
   }
 }

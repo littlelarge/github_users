@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppStyles {
   static final TextStyle sf14Medium = TextStyle(
-    fontSize: 16.r,
+    fontSize: 14.r,
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
@@ -18,5 +18,16 @@ abstract class AppStyles {
     fontSize: 30.r,
     fontWeight: FontWeight.w500,
     color: Colors.white,
+  );
+  static final TextStyle sf14MediumBlack = TextStyle(
+    fontSize: 14.r,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+
+  static final TextStyle sf16MediumBlack = TextStyle(
+    fontSize: 16.r,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
   );
 }

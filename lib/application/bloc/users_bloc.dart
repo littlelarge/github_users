@@ -12,7 +12,7 @@ part 'users_state.dart';
 
 @injectable
 class UsersBloc extends Bloc<UsersEvent, UsersState> {
-  UsersBloc(this._usersRepository) : super(const UsersState.initial()) {
+  UsersBloc(this._usersRepository) : super(const UsersState.fetchInProgress()) {
     on<UsersEvent>((event, emit) async {
       await event.map(
         usersFetched: (e) async {

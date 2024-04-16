@@ -168,21 +168,21 @@ abstract class _UsersFetched implements UsersEvent {
 mixin _$UsersState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() fetchInProgress,
     required TResult Function(KtList<User> users) fetchSuccess,
     required TResult Function(UsersFailure failure) fetchFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? fetchInProgress,
     TResult? Function(KtList<User> users)? fetchSuccess,
     TResult? Function(UsersFailure failure)? fetchFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? fetchInProgress,
     TResult Function(KtList<User> users)? fetchSuccess,
     TResult Function(UsersFailure failure)? fetchFailed,
     required TResult orElse(),
@@ -190,21 +190,21 @@ mixin _$UsersState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchInProgress value) fetchInProgress,
     required TResult Function(_FetchSuccess value) fetchSuccess,
     required TResult Function(_FetchFailed value) fetchFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchInProgress value)? fetchInProgress,
     TResult? Function(_FetchSuccess value)? fetchSuccess,
     TResult? Function(_FetchFailed value)? fetchFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchInProgress value)? fetchInProgress,
     TResult Function(_FetchSuccess value)? fetchSuccess,
     TResult Function(_FetchFailed value)? fetchFailed,
     required TResult orElse(),
@@ -231,35 +231,35 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$FetchInProgressImplCopyWith<$Res> {
+  factory _$$FetchInProgressImplCopyWith(_$FetchInProgressImpl value,
+          $Res Function(_$FetchInProgressImpl) then) =
+      __$$FetchInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$UsersStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$FetchInProgressImplCopyWithImpl<$Res>
+    extends _$UsersStateCopyWithImpl<$Res, _$FetchInProgressImpl>
+    implements _$$FetchInProgressImplCopyWith<$Res> {
+  __$$FetchInProgressImplCopyWithImpl(
+      _$FetchInProgressImpl _value, $Res Function(_$FetchInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$FetchInProgressImpl implements _FetchInProgress {
+  const _$FetchInProgressImpl();
 
   @override
   String toString() {
-    return 'UsersState.initial()';
+    return 'UsersState.fetchInProgress()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$FetchInProgressImpl);
   }
 
   @override
@@ -268,33 +268,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() fetchInProgress,
     required TResult Function(KtList<User> users) fetchSuccess,
     required TResult Function(UsersFailure failure) fetchFailed,
   }) {
-    return initial();
+    return fetchInProgress();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? fetchInProgress,
     TResult? Function(KtList<User> users)? fetchSuccess,
     TResult? Function(UsersFailure failure)? fetchFailed,
   }) {
-    return initial?.call();
+    return fetchInProgress?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? fetchInProgress,
     TResult Function(KtList<User> users)? fetchSuccess,
     TResult Function(UsersFailure failure)? fetchFailed,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (fetchInProgress != null) {
+      return fetchInProgress();
     }
     return orElse();
   }
@@ -302,40 +302,40 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchInProgress value) fetchInProgress,
     required TResult Function(_FetchSuccess value) fetchSuccess,
     required TResult Function(_FetchFailed value) fetchFailed,
   }) {
-    return initial(this);
+    return fetchInProgress(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchInProgress value)? fetchInProgress,
     TResult? Function(_FetchSuccess value)? fetchSuccess,
     TResult? Function(_FetchFailed value)? fetchFailed,
   }) {
-    return initial?.call(this);
+    return fetchInProgress?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchInProgress value)? fetchInProgress,
     TResult Function(_FetchSuccess value)? fetchSuccess,
     TResult Function(_FetchFailed value)? fetchFailed,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (fetchInProgress != null) {
+      return fetchInProgress(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements UsersState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _FetchInProgress implements UsersState {
+  const factory _FetchInProgress() = _$FetchInProgressImpl;
 }
 
 /// @nodoc
@@ -402,7 +402,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() fetchInProgress,
     required TResult Function(KtList<User> users) fetchSuccess,
     required TResult Function(UsersFailure failure) fetchFailed,
   }) {
@@ -412,7 +412,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? fetchInProgress,
     TResult? Function(KtList<User> users)? fetchSuccess,
     TResult? Function(UsersFailure failure)? fetchFailed,
   }) {
@@ -422,7 +422,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? fetchInProgress,
     TResult Function(KtList<User> users)? fetchSuccess,
     TResult Function(UsersFailure failure)? fetchFailed,
     required TResult orElse(),
@@ -436,7 +436,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchInProgress value) fetchInProgress,
     required TResult Function(_FetchSuccess value) fetchSuccess,
     required TResult Function(_FetchFailed value) fetchFailed,
   }) {
@@ -446,7 +446,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchInProgress value)? fetchInProgress,
     TResult? Function(_FetchSuccess value)? fetchSuccess,
     TResult? Function(_FetchFailed value)? fetchFailed,
   }) {
@@ -456,7 +456,7 @@ class _$FetchSuccessImpl implements _FetchSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchInProgress value)? fetchInProgress,
     TResult Function(_FetchSuccess value)? fetchSuccess,
     TResult Function(_FetchFailed value)? fetchFailed,
     required TResult orElse(),
@@ -551,7 +551,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() fetchInProgress,
     required TResult Function(KtList<User> users) fetchSuccess,
     required TResult Function(UsersFailure failure) fetchFailed,
   }) {
@@ -561,7 +561,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? fetchInProgress,
     TResult? Function(KtList<User> users)? fetchSuccess,
     TResult? Function(UsersFailure failure)? fetchFailed,
   }) {
@@ -571,7 +571,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? fetchInProgress,
     TResult Function(KtList<User> users)? fetchSuccess,
     TResult Function(UsersFailure failure)? fetchFailed,
     required TResult orElse(),
@@ -585,7 +585,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_FetchInProgress value) fetchInProgress,
     required TResult Function(_FetchSuccess value) fetchSuccess,
     required TResult Function(_FetchFailed value) fetchFailed,
   }) {
@@ -595,7 +595,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FetchInProgress value)? fetchInProgress,
     TResult? Function(_FetchSuccess value)? fetchSuccess,
     TResult? Function(_FetchFailed value)? fetchFailed,
   }) {
@@ -605,7 +605,7 @@ class _$FetchFailedImpl implements _FetchFailed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_FetchInProgress value)? fetchInProgress,
     TResult Function(_FetchSuccess value)? fetchSuccess,
     TResult Function(_FetchFailed value)? fetchFailed,
     required TResult orElse(),

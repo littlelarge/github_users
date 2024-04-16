@@ -4,7 +4,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:github_users/application/bloc/users_bloc.dart';
 import 'package:github_users/injection.dart';
+import 'package:github_users/presentation/core/app_colors.dart';
+import 'package:github_users/presentation/core/app_styles.dart';
+import 'package:github_users/presentation/core/gen/assets.gen.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_appbar.dart';
+import 'package:github_users/presentation/core/gu_widgets/gu_button.dart';
 import 'package:github_users/presentation/users/overview/widgets/overview_list_widget.dart';
 
 class UsersOverviewPage extends HookWidget {
@@ -26,14 +30,51 @@ class UsersOverviewPage extends HookWidget {
           child: BlocBuilder<UsersBloc, UsersState>(
             builder: (context, state) {
               return state.map(
-                initial: (state) => Container(),
+                fetchInProgress: (state) =>
+                    const Center(child: CircularProgressIndicator()),
                 fetchSuccess: (state) {
                   return OverviewPageList(
                     users: state.users,
                     padding: EdgeInsets.symmetric(vertical: _commonPadding),
                   );
                 },
-                fetchFailed: (state) => Container(),
+                fetchFailed: (state) => Center(
+                  child: Container(
+                    padding: EdgeInsets.all(20.r),
+                    height: 300.r,
+                    width: 300.r,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: AppColors.warning,
+                    ),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Assets.icons.warning.svg(
+                            height: 100.r,
+                            width: 100.r,
+                          ),
+                          Text(
+                            'Something went wrong. \n'
+                            'Please check your internet connection',
+                            style: AppStyles.sf16MediumBlack,
+                            textAlign: TextAlign.center,
+                          ),
+                          GUButton(
+                            onPressed: () {
+                              context
+                                  .read<UsersBloc>()
+                                  .add(const UsersEvent.usersFetched());
+                            },
+                            child:
+                                Text('Retry', style: AppStyles.sf14MediumBlack),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               );
             },
           ),
