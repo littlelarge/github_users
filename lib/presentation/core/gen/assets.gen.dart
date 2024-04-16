@@ -21,10 +21,21 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [warning];
 }
 
+class $AssetsLogoGen {
+  const $AssetsLogoGen();
+
+  /// File path: assets/logo/logo.svg
+  SvgGenImage get logo => const SvgGenImage('assets/logo/logo.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [logo];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsLogoGen logo = $AssetsLogoGen();
 }
 
 class SvgGenImage {

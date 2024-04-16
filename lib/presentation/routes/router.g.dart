@@ -7,12 +7,35 @@ part of 'router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
+      $splashRoute,
       $usersOverviewRoute,
       $userDetailsRoute,
     ];
 
-RouteBase get $usersOverviewRoute => GoRouteData.$route(
+RouteBase get $splashRoute => GoRouteData.$route(
       path: '/',
+      factory: $SplashRouteExtension._fromState,
+    );
+
+extension $SplashRouteExtension on SplashRoute {
+  static SplashRoute _fromState(GoRouterState state) => SplashRoute();
+
+  String get location => GoRouteData.$location(
+        '/',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $usersOverviewRoute => GoRouteData.$route(
+      path: '/usersOverview',
       factory: $UsersOverviewRouteExtension._fromState,
     );
 
@@ -21,7 +44,7 @@ extension $UsersOverviewRouteExtension on UsersOverviewRoute {
       UsersOverviewRoute();
 
   String get location => GoRouteData.$location(
-        '/',
+        '/usersOverview',
       );
 
   void go(BuildContext context) => context.go(location);
