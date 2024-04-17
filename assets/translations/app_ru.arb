@@ -1,0 +1,15 @@
+{
+    "gitHubUsers": "Пользователи Github",
+    "userDetails": "Сведения о пользователе",
+    "userId": "ID пользователя",
+    "nodeId": "ID узла",
+    "accountType": "Тип учетной записи",
+    "somethingWentWrong": "Что-то пошло не так.",
+    "pleaseCheckYourInternetConnection": "Пожалуйста, проверьте ваше интернет соединение!",
+    "retry": "Повторить",
+    "back": "Назад",
+    "settings": "Настройки",
+    "language": "Язык",
+    "rus": "Рус",
+    "en": "En"
+}

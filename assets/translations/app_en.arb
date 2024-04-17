@@ -1,0 +1,15 @@
+{
+    "gitHubUsers": "Github Users",
+    "userDetails": "User Details",
+    "userId": "User ID",
+    "nodeId": "Node ID",
+    "accountType": "Account type",
+    "somethingWentWrong": "Something went wrong.",
+    "pleaseCheckYourInternetConnection": "Please check your internet connection!",
+    "retry": "Retry",
+    "back": "Back",
+    "settings": "Settings",
+    "language": "Language",
+    "rus": "Rus",
+    "en": "En"
+}

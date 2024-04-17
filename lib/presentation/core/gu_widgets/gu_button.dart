@@ -17,10 +17,10 @@ class GUButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40.r,
-      width: 100.r,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          minimumSize: Size.infinite,
           elevation: 0,
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:github_users/application/bloc/users_bloc.dart';
+import 'package:github_users/application/users/users_bloc.dart';
 import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';

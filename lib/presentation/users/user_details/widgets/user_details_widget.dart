@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:github_users/common/l10n/app_localizations.dart';
 import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
 
@@ -12,11 +13,20 @@ class UserDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserDetailsTile(title: 'User ID', details: user.id.toString()),
+        UserDetailsTile(
+          title: AppLocalizations.of(context).userId,
+          details: user.id.toString(),
+        ),
         const Gap(20),
-        UserDetailsTile(title: 'Node ID', details: user.nodeId),
+        UserDetailsTile(
+          title: AppLocalizations.of(context).nodeId,
+          details: user.nodeId,
+        ),
         const Gap(20),
-        UserDetailsTile(title: 'Account type', details: user.type),
+        UserDetailsTile(
+          title: AppLocalizations.of(context).accountType,
+          details: user.type,
+        ),
       ],
     );
   }

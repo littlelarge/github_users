@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:github_users/common/l10n/app_localizations.dart';
 import 'package:github_users/domain/users/user.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
@@ -18,8 +19,8 @@ class UserDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const GUAppBar(
-        title: Text('User Details'),
+      appBar: GUAppBar(
+        title: Text(AppLocalizations.of(context).userDetails),
       ),
       body: Padding(
         padding: EdgeInsets.all(18.r),
@@ -50,7 +51,10 @@ class UserDetailsPage extends StatelessWidget {
                 context.pop();
               },
               backgroundColor: AppColors.brown,
-              child: Text('Back', style: AppStyles.sf16Medium),
+              child: Text(
+                AppLocalizations.of(context).back,
+                style: AppStyles.sf16Medium,
+              ),
             ),
             Gap(30.r),
           ],

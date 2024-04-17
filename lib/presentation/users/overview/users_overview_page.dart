@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:github_users/application/bloc/users_bloc.dart';
+import 'package:github_users/application/users/users_bloc.dart';
+import 'package:github_users/common/l10n/app_localizations.dart';
 import 'package:github_users/injection.dart';
 import 'package:github_users/presentation/core/app_colors.dart';
 import 'package:github_users/presentation/core/app_styles.dart';
 import 'package:github_users/presentation/core/gen/assets.gen.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_appbar.dart';
 import 'package:github_users/presentation/core/gu_widgets/gu_button.dart';
+import 'package:github_users/presentation/routes/router.dart';
 import 'package:github_users/presentation/users/overview/widgets/overview_list_widget.dart';
 
 class UsersOverviewPage extends HookWidget {
@@ -22,8 +24,16 @@ class UsersOverviewPage extends HookWidget {
       create: (context) =>
           getIt<UsersBloc>()..add(const UsersEvent.usersFetched()),
       child: Scaffold(
-        appBar: const GUAppBar(
-          title: Text('Github Users'),
+        appBar: GUAppBar(
+          title: Text(AppLocalizations.of(context).gitHubUsers),
+          actions: [
+            IconButton(
+              onPressed: () {
+                SettingsRoute().push<SettingsRoute>(context);
+              },
+              icon: Assets.icons.settings.svg(height: 25.r),
+            ),
+          ],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: _commonPadding),
@@ -56,8 +66,10 @@ class UsersOverviewPage extends HookWidget {
                             width: 100.r,
                           ),
                           Text(
-                            'Something went wrong. \n'
-                            'Please check your internet connection',
+                            // ignore: lines_longer_than_80_chars
+                            '${AppLocalizations.of(context).somethingWentWrong} \n'
+                            // ignore: lines_longer_than_80_chars
+                            '${AppLocalizations.of(context).pleaseCheckYourInternetConnection}',
                             style: AppStyles.sf16MediumBlack,
                             textAlign: TextAlign.center,
                           ),
@@ -67,8 +79,10 @@ class UsersOverviewPage extends HookWidget {
                                   .read<UsersBloc>()
                                   .add(const UsersEvent.usersFetched());
                             },
-                            child:
-                                Text('Retry', style: AppStyles.sf14MediumBlack),
+                            child: Text(
+                              AppLocalizations.of(context).retry,
+                              style: AppStyles.sf14MediumBlack,
+                            ),
                           ),
                         ],
                       ),

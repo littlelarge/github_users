@@ -10,7 +10,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:github_users/application/bloc/users_bloc.dart' as _i6;
+import 'package:github_users/application/users/users_bloc.dart' as _i6;
 import 'package:github_users/domain/users/i_users_repository.dart' as _i4;
 import 'package:github_users/infrastructure/core/dio_injectable_module.dart'
     as _i7;
